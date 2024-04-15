@@ -1,0 +1,35 @@
+div {
+    float: left;
+}
+
+#petname {
+    color: rgb(0, 201, 171);
+}
+
+#status {
+    color: rgb(128, 128, 128);
+}
+
+#text {
+    color: rgb(93, 93, 93);
+}
+
+#pets {
+    margin-right: 20px;
+}
+
+.img-thumbnail {
+    width: 200px;
+    height: 200px;
+}
+
+.click:hover {
+    opacity: 0.3;
+    transition: .5s ease;
+}
+
+.btn {
+    background-color: rgb(0, 201, 171);
+    color: white;
+    border-color: rgb(0, 201, 171);
+}

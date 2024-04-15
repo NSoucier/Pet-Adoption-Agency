@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h2 id="text">Pets</h2>
+<h6 id="text">Click on a pet for more details.</h6>
+
+{% for msg in get_flashed_messages() %}
+  <p>{{ msg }}</p>
+{% endfor %}
+
+{% for pet in pets %}
+<div id="pets">
+    <a href="/{{pet.id}}"><img src="{{pet.photo_url}}" class="img-thumbnail click" alt="image of {{pet.species}}"></a>
+    <p id="petname">{{pet.name}} <span id="status">
+        {% if pet.available %}<b>is available!</b>
+        {% else %}found a home!
+        {% endif %}
+    </span></p>
+</div>
+{% endfor %}
+
+<div class="container">
+    <a href="/add" class="btn btn-success">Add a pet</a>
+</div>
+
+{% endblock %}

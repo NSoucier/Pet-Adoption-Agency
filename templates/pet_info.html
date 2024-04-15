@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h3 id="text">Say hello to {{pet.name}}!</h3>
+
+<div id="container">
+    <p>My name is {{pet.name}}</p>
+    <p>I am a {{pet.species}}
+        {% if pet.age %} and I am {{pet.age}} years old! {% endif %}
+    </p>
+    <p>
+        {% if pet.photo_url %}
+        <img src="{{pet.photo_url}}" class="img-thumbnail" alt="Image of a {{pet.species}}">
+        {% endif %}
+    </p>
+</div>
+
+<div class="container">
+    <h5 id="text">Edit pet details</h5>
+    <form id="edit-pet-form", method="POST">
+        {{ form.hidden_tag() }} <!--add type=hidden form fields -->
+
+        {% for field in form if field.widget.input_type != 'hidden'%}
+            <p>
+                {% if field.type == "BooleanField" %}
+                    {{field.label}}
+                    {{field}}
+                {% else %}
+                    {{field.label}}
+                    {{field(class_="form-control")}}
+                {% endif %}
+            </p>
+        {% endfor %}
+        <button class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
